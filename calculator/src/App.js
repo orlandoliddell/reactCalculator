@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import { useReducer } from "react"
 import DigitButton from "./DigitButton"
 import OperationButton from "./OperationButton"
@@ -16,6 +17,13 @@ export const ACTIONS = {
 function reducer(state, { type, payload }) {
   switch(type) {
     case ACTIONS.ADD_DIGIT:
+      if (payload.digit ==="0" && state.currentOpperand === "0") return state
+      if (payload.digit === "." && state.currentOperand == null) { 
+        return state 
+      } 
+      if (payload.digit === "." && state.currentOperand.includes(".")) { 
+        return state 
+      } 
     return {
       ...state,
       currentOpperand: `${state.currentOpperand || ""}${payload.digit}`
