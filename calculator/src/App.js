@@ -1,5 +1,6 @@
 import { useReducer } from "react"
 import DigitButton from "./DigitButton"
+import OperationButton from "./OperationButton"
 import "./style.css"
 
 
@@ -17,7 +18,7 @@ function reducer(state, { type, payload }) {
     case ACTIONS.ADD_DIGIT:
     return {
       ...state,
-      currentOpperand: `${currentOpperand || ""}${payload.digit}`
+      currentOpperand: `${state.currentOpperand || ""}${payload.digit}`
     }
   }
 }
