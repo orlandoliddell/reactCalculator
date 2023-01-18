@@ -32,6 +32,8 @@ function reducer(state, { type, payload }) {
       ...state,
       currentOpperand: `${state.currentOpperand || ""}${payload.digit}`
     }
+    case ACTIONS.CLEAR:
+      return {};
   }
 }
 
@@ -49,8 +51,12 @@ function App() {
         <div className="current-opperand">{currentOpperand}</div>
       </div>
 
-      <button className="span-two">AC</button>
-      <button >DEL</button>
+      <button className="span-two" onClick={() => dispatch({ type: ACTIONS.CLEAR })}>
+        AC
+        </button>
+      <button >
+        DEL
+        </button>
       <OperationButton operation="\" dispatch={dispatch}/>     
       <DigitButton digit="1" dispatch={dispatch}/>     
       <DigitButton digit="2" dispatch={dispatch}/>     
@@ -66,7 +72,9 @@ function App() {
       <OperationButton operation="-" dispatch={dispatch}/>     
       <DigitButton digit="." dispatch={dispatch}/>     
       <DigitButton digit="0" dispatch={dispatch}/>     
-      <button className="span-two">=</button>
+      <button className="span-two">
+        =
+        </button>
     </div>
   )
 }
