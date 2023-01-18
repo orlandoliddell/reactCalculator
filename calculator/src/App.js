@@ -28,11 +28,12 @@ function reducer(state, { type, payload }) {
           currentOpperand: payload.digit,  
         };
       } 
+      // '.' isn't adding on to current state. clears state and displays the '.'
     return {
       ...state,
       currentOpperand: `${state.currentOpperand || ""}${payload.digit}`
     }
-    case ACTIONS.CLEAR:
+  case ACTIONS.CLEAR:
       return {};
   }
 }
