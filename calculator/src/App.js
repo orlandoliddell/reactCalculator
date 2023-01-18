@@ -19,10 +19,14 @@ function reducer(state, { type, payload }) {
     case ACTIONS.ADD_DIGIT:
       if (payload.digit ==="0" && state.currentOpperand === "0") return state
       if (payload.digit === "." && state.currentOperand == null) { 
-        return state 
+        return { ...state, 
+          currentOpperand: payload.digit,
+        }; 
       } 
       if (payload.digit === "." && state.currentOperand.includes(".")) { 
-        return state 
+        return { ...state, 
+          currentOpperand: payload.digit, 
+        };
       } 
     return {
       ...state,
