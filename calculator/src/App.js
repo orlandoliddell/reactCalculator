@@ -36,6 +36,15 @@ function reducer(state, { type, payload }) {
     if (state.currentOperand == null && state.previousOperand == null) {
       return state
     }
+
+    //this way, you can change your operation displaying in your equation if mistakes were made.
+    if (state.currentOperand == null) {
+      return {
+        ...state,
+        operation: payload.operation
+      }
+    }
+
     if (state.previousOperand == null) {
       return {
         ...state,
