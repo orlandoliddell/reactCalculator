@@ -62,6 +62,11 @@ function evaluate({ currentOperand,previousOperand,operation }) {
   const current = parseFloat(currentOperand)
   if(isNaN(prev) || isNaN(current)) return ""
   let computation = ""
+  switch (operation) {
+    case "+":
+      computation = prev + current
+      break
+  }
 
 }
 
