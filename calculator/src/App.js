@@ -96,15 +96,24 @@ function App() {
   return (
     <div className="calculator-grid">
       
-      <div className="output">
-        <div className="previous-opperand">{previousOperand} {operation}</div>
-        <div className="current-opperand">{currentOperand}</div>
+      <div 
+        className="output">
+          <div 
+            className="previous-opperand">
+            {previousOperand} {operation}
+          </div>
+          <div 
+            className="current-opperand">
+            {currentOperand}
+          </div>
       </div>
 
-      <button className="span-two" onClick={() => dispatch({ type: ACTIONS.CLEAR })}>
+      <button 
+        className="span-two" 
+        onClick={() => dispatch({ type: ACTIONS.CLEAR })}>
         AC
-        </button>
-      <button >
+      </button>
+      <button>
         DEL
         </button>
       <OperationButton operation="/" dispatch={dispatch}/>     
