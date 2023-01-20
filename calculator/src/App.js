@@ -46,7 +46,7 @@ function reducer(state, { type, payload }) {
     }
     return{
       ...state,
-      previousOperand: evalute(state),
+      previousOperand: evaluate(state),
       operation: payload.operation,
       currentOperand: null
     }
@@ -66,8 +66,17 @@ function evaluate({ currentOperand,previousOperand,operation }) {
     case "+":
       computation = prev + current
       break
+    case "-":
+     computation = prev - current
+      break
+    case "*":
+      computation = prev * current
+      break
+    case "/":
+      computation = prev / current
+      break            
   }
-
+  return computation.toString()
 }
 
 function App() {
@@ -89,7 +98,7 @@ function App() {
       <button >
         DEL
         </button>
-      <OperationButton operation="\" dispatch={dispatch}/>     
+      <OperationButton operation="/" dispatch={dispatch}/>     
       <DigitButton digit="1" dispatch={dispatch}/>     
       <DigitButton digit="2" dispatch={dispatch}/>     
       <DigitButton digit="3" dispatch={dispatch}/>     
